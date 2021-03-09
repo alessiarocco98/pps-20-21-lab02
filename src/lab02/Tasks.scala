@@ -26,7 +26,7 @@ object Tasks {
 
   /*--- Tasks - part 2b (functions) ---*/
 
-  /* 4. Curring */
+  /* 4. Currying */
   val predicate1: Double => Double => Double => Boolean = x => y => z => (x <= y) && (y <= z)
   val predicate2: (Double, Double, Double) => Boolean = (x,y,z) => (x <= y) && (y <= z)
   def predicate3(x:Double)(y:Double)(z:Double): Boolean = (x <= y) && (y <= z)

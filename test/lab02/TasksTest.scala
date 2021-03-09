@@ -41,4 +41,17 @@ class TasksTest {
     assertTrue(notOdd(2.0))
   }
 
+  @Test def testCurrying(): Unit = {
+    val p1_1 = predicate1(1)
+    val p2_1 = p1_1(2)
+    val p3_1 = p2_1(3)
+    val p1_3: Double => Double => Boolean = predicate3(1)
+    val p2_3: Double => Boolean = p1_3(2)
+    val p3_3: Boolean = p2_3(3)
+
+    assertTrue(p3_1)
+    assertTrue(predicate1(1)(2)(3))
+    assertTrue(p3_3)
+    assertTrue(predicate3(1)(2)(3))
+  }
 }
