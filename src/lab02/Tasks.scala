@@ -33,6 +33,7 @@ object Tasks {
   def predicate4(x:Double, y:Double, z:Double): Boolean = (x <= y) && (y <= z)
 
   /* 5. */
-
-
+  def compose(f: Int => Int, g: Int => Int): Int => Int = x => f(g(x))
+  // generic version
+  def composeG[A] (f: A => A, g: A => A): A => A = x => f(g(x))
 }

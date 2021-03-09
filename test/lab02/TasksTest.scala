@@ -54,4 +54,14 @@ class TasksTest {
     assertTrue(p3_3)
     assertTrue(predicate3(1)(2)(3))
   }
+
+  @Test def testCompose(): Unit = {
+    assertEquals(9, compose(_-1, _*2)(5))
+  }
+
+  @Test def testComposeGeneric(): Unit = {
+    assertEquals(9, composeG[Int](_-1, _*2)(5))
+    assertEquals("ciao1ciao", composeG[String](_+"ciao", _+"1")("ciao"))
+  }
+
 }
