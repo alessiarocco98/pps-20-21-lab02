@@ -37,8 +37,8 @@ class TasksTest {
 
     assertTrue(notEven(1))
     assertFalse(notEven(2))
-    assertTrue(notOdd(2.0))
     assertFalse(notOdd(1.0))
+    assertTrue(notOdd(2.0))
   }
 
 }
