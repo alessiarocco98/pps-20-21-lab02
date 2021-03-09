@@ -1,19 +1,13 @@
 package lab02
 
-import org.junit.jupiter.api.Assertions._
-import org.junit.jupiter.api.Test
-
 object Tasks {
-  /* Tasks - part 2a (funtions) */
-  /* 3 a) */
+  /*--- Tasks - part 2a (functions) ---*/
+
+  /* a) */
   // lambda
   val parity: Int => String = {
     case n if n%2 == 0 => "even"
     case _ => "odd"
-  }
-
-  @Test def testCount(): Unit ={
-
   }
   // method syntax
   def parity2(x: Int): String = x match {
@@ -21,33 +15,24 @@ object Tasks {
     case _ => "odd"
   }
 
-  /* 3 b) */
-  val empty: String => Boolean = _ == ""
-
+  /* b) */
   // lambda
-  val neg: (String => Boolean) => (String => Boolean) = f => (s => !f(s))
-  val notEmpty: String => Boolean = neg(empty)
+  val neg: (String => Boolean) => String => Boolean = p => !p(_)
   // method syntax
-  def neg2 (p: (String) => Boolean): (String => Boolean) =
-    (x:String) => !p(x)
+  def neg2(p2: String => Boolean): String => Boolean = !p2(_)
 
+  /* c) */
+  def neg3[A](p3: A => Boolean): A => Boolean = !p3(_)
 
+  /*--- Tasks - part 2b (functions) ---*/
 
-  val notEmpty1: Boolean = neg("foo", neg(empty))
-  println(notEmpty1)
-  val notEmpty2: Boolean = neg("", neg(empty))
-  println(notEmpty2)
-  val notEmpty3: (String => Boolean) = neg2(empty)
-  println(notEmpty3("foo"))
-  println(notEmpty3(""))
+  /* 4. Curring */
+  val predicate1: Double => Double => Double => Boolean = x => y => z => (x <= y) && (y <= z)
+  val predicate2: (Double, Double, Double) => Boolean = (x,y,z) => (x <= y) && (y <= z)
+  def predicate3(x:Double)(y:Double)(z:Double): Boolean = (x <= y) && (y <= z)
+  def predicate4(x:Double, y:Double, z:Double): Boolean = (x <= y) && (y <= z)
 
-  /* 3 c) */
-  def neg[A] (p: (A) => Boolean): (A => Boolean) =
-    (x:A) => !p(x)
+  /* 5. */
 
-  /* 4 curring */
-  // val curriedMultAsFunction: Double => Double => Double = x => y => x*y
-  // val p1 = (x:Double) => (y:Double) => (z:Double) => x <= y <= z
-  //def p3(x:Double)(y:Double)(z:Double): Boolean = (x <= y <= z
 
 }
