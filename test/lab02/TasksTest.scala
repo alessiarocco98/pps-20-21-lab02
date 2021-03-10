@@ -79,4 +79,17 @@ class TasksTest {
     assertEquals(2,fib(3))
     assertEquals(3,fib(4))
   }
+
+  @Test def testShapePerimeter(): Unit = {
+    assertEquals(6.4 , Shape.perimeter(Shape.Rectangle(1.2, 2)))
+    assertEquals(4 * math.Pi, Shape.perimeter(Shape.Circle(2)))
+    assertEquals(6.0 , Shape.perimeter(Shape.Square(1.5)))
+  }
+
+  @Test def testShapeArea(): Unit = {
+    assertEquals(2.4 , Shape.area(Shape.Rectangle(1.2, 2)))
+    assertEquals(4 * math.Pi, Shape.area(Shape.Circle(2)))
+    assertEquals(2.25, Shape.area(Shape.Square(1.5)))
+  }
 }
+
