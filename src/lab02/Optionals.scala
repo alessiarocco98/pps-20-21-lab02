@@ -32,6 +32,12 @@ object Optionals {
       case Some(a) => Some[B](transformation(a))
     }
 
+    def map2[A, B, C](opt1: Option[A], opt2: Option[B], combine: (A,B) => C): Option[C] = (opt1, opt2) match {
+      case (None(), _ ) => None()
+      case (_, None()) => None()
+      case (Some(a), Some(b)) => Some[C](combine(a,b))
+    }
+
 
   }
 }
