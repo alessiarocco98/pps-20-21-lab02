@@ -1,5 +1,7 @@
 package lab02
 
+import Optionals._
+
 object Tasks {
   /*--- Tasks - part 2a (functions) ---*/
 
@@ -80,4 +82,8 @@ object Tasks {
       case Square(side) => side * side
     }
   }
+
+  /*--- Tasks - part 5 (more functional combinators) ---*/
+
+  /* 8. */
 }
