@@ -22,6 +22,8 @@ object Optionals {
       case _ => None()
     }
 
+    /*--- Tasks - part 5 (more functional combinators) ---*/
+    /* 8. */
     def filter[A](opt: Option[A])(predicate: A => Boolean): Option[A] = opt match {
       case Some(a) if predicate(a) => opt
       case _ => None()
@@ -37,7 +39,5 @@ object Optionals {
       case (_, None()) => None()
       case (Some(a), Some(b)) => Some[C](combine(a,b))
     }
-
-
   }
 }
